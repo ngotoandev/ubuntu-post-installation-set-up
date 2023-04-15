@@ -27,7 +27,8 @@ fi
 
 echo "Installing nvm and latest node lts..."
 if [ ! -d ~/.nvm ]; then
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bashstatement
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+  source ~/.zshrc
   latest_lts=$(nvm ls-remote --lts | grep -oP 'v\d+\.\d+\.\d+' | tail -n 1)
   nvm install $latest_lts
 else
