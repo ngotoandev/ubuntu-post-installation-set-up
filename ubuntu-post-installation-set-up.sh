@@ -70,7 +70,8 @@ echo "Generating ssh key..."
 if [ -f ~/.ssh/id_ed25519.pub ]; then
   echo "Seems like an ssh key already exists."
 else
-  ssh-keygen -t ed25519 -C "ngotoan.dev@gmail.com" -N '' <<< y
+  eval "$(ssh-agent -s)"
+  ssh-keygen -t ed25519 -C "ngotoan.dev@gmail.com"
   ssh-add ~/.ssh/id_ed25519
 fi
 
